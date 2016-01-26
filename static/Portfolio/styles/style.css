@@ -207,11 +207,11 @@ a,a:hover, a:visited{
     content: "";
     display: block;
     float: left;
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 21px;
     background-size: 16px 16px;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: left center;
 }
 
 .yandex-mail-icon:before {
