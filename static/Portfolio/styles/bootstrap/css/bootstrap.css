@@ -1135,7 +1135,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.42857143;
-  background-color: #ffffff;
+  background-color: #E8C7C2;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -3473,7 +3473,7 @@ input[type="button"].btn-block {
   padding: 4px;
   margin-bottom: 20px;
   line-height: 1.42857143;
-  background-color: #ffffff;
+  background-color: #E8C7C2;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-transition: border 0.2s ease-in-out;
@@ -3571,7 +3571,7 @@ a.thumbnail.active {
 }
 .panel {
   margin-bottom: 20px;
-  background-color: #ffffff;
+  background-color: #FFF8F7;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -3809,7 +3809,7 @@ a.thumbnail.active {
 }
 .panel-default > .panel-heading {
   color: #333333;
-  background-color: #f5f5f5;
+  background-color: #E8C7C2;
   border-color: #dddddd;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
