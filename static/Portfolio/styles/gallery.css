@@ -1,0 +1,344 @@
+div.album-header,
+div.comments-header {
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 10px;
+}
+
+
+/* Main layer */
+.gallery-image-div {
+    float: left;
+    text-align: center;
+    padding: 5px;
+}
+
+.gallery-image-div a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #E8C7C1;
+    border-radius: 4px;
+    transition: border 1s ease;
+    padding: 5px;
+}
+
+.gallery-image-div:hover a {
+    border-color: #E8634E;
+}
+
+.gallery-image-div img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media (max-width: 767px) {
+    .gallery-image-div-left {
+        width: 50%;
+        float: left;
+        clear: left;
+    }
+    .gallery-image-div-right {
+        width: 50%;
+        float: right;
+        clear: right;
+    }
+}
+
+/* width: 750px */
+@media (min-width: 768px) {
+    .gallery-image-div {
+        width: 187.5px;
+        height: 145.625px;
+    }
+    .gallery-image-div a {
+        line-height: 123.625px;
+    }
+}
+
+/* width: 970px */
+@media (min-width: 992px) {
+    .gallery-image-div {
+        width: 194.0px;
+        height: 150.5px;
+    }
+    .gallery-image-div a {
+        line-height: 128.5px;
+    }
+}
+
+/* width: 1170px */
+@media (min-width: 1200px) {
+    .gallery-image-div {
+        width: 195.0px;
+        height: 151.25px;
+    }
+    .gallery-image-div a {
+        line-height: 129.25px;
+    }
+}
+
+
+/* Viewer layer */
+#imageViewerLayer,
+#helpLayer {
+    z-index: 666;
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(60, 60, 60, 0.75);
+    background: url('/static/Portfolio/images/60_60_60_75.png')\0;
+    overflow-y: auto;
+}
+
+#viewerDiv {
+    white-space: nowrap;
+}
+
+#viewerDiv img {
+    white-space: nowrap;
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: relative;
+    z-index: 666;
+}
+
+@media (min-width: 768px) {
+    .viewer-outer {
+        padding: 50px 0px;
+        height: 100%;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #viewerDiv {
+        padding: 10px 70px;
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .helper {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+@media (max-width: 767px) {
+    .viewer-outer {
+        position: relative;
+        margin-top: 10px;
+        padding: 10px;
+        background: #fff;
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 333;
+    margin-left: -100px;
+    margin-top: -100px;
+}
+
+
+/* Buttons */
+.button {
+    display: block;
+    background: url('/static/Portfolio/images/buttons.png');
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 10px;
+    position: absolute;
+    z-index: 9999;
+}
+
+#closeButton {
+    background-position: 0px 0px;
+}
+
+#leftButton {
+    background-position: -50px 0px;
+}
+
+#saveButton {
+    background-position: -100px 0px;
+}
+
+#rightButton {
+    background-position: -200px 0px;
+}
+
+@media (max-width: 767px) {
+    #closeButton {
+        right: 10px;
+        top: 10px;
+    }
+
+    #saveButton {
+        right: 10px;
+        top: 70px;
+    }
+
+    #leftButton,
+    #rightButton {
+        z-index: 667;
+        width: 50%;
+        height: 100%;
+        top: 0px;
+        opacity: 0;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    }
+
+    #leftButton {
+        left: 0px;
+    }
+
+    #rightButton {
+        right: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    #closeButton:hover {
+        background-position: 0px -50px;
+    }
+
+    #leftButton:hover {
+        background-position: -50px -50px;
+    }
+
+    #saveButton:hover {
+        background-position: -100px -50px;
+    }
+
+    #rightButton:hover {
+        background-position: -200px -50px;
+    }
+
+    #closeButton:active {
+        background-position: 0px -100px;
+    }
+
+    #leftButton:active {
+        background-position: -50px -100px;
+    }
+
+    #saveButton:active {
+        background-position: -100px -100px;
+    }
+
+    #rightButton:active {
+        background-position: -200px -100px;
+    }
+
+    #saveButton.on-saved-image:hover {
+        background-position: -100px -50px;
+    }
+
+    #saveButton.on-saved-image:active {
+        background-position: -100px -100px;
+    }
+
+    #closeButton {
+        right: 0px;
+        top: 0px;
+    }
+
+    #saveButton {
+        right: 0px;
+        top: 60px;
+    }
+
+    #leftButton {
+        left: 0;
+        top: 50%;
+        margin-top: -25px;
+    }
+
+    #rightButton {
+        right: 0;
+        top: 50%;
+        margin-top: -25px;
+    }
+}
+
+#saveButton.on-saved-image {
+    background-position: -150px 0px;
+}
+
+/* Comments block */
+@media (max-width: 767px) {
+    .comments-outer {
+        background: #fff;
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .comments-outer {
+        margin-top: -40px;
+        background: #fff;
+        margin-bottom: 50px;
+    }
+}
+
+
+/* Help */
+
+#helpCloseButton {
+    background-position: 0px 0px;
+}
+
+@media (max-width: 767px) {
+    .helpMessage {
+        background: #fff;
+        margin-top: 10px;
+    }
+    .helpMessage div {
+        padding: 10px;
+    }
+    #helpCloseButton {
+        right: 0px;
+        top: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    #helpCloseButton:hover {
+        background-position: 0px -50px;
+    }
+
+    #helpCloseButton:active {
+        background-position: 0px -100px;
+    }
+
+    .helpMessage {
+        width: 700px;
+        background: #fff;
+        margin: 50px auto;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    .helpMessage div {
+        padding: 20px;
+    }
+
+    #helpCloseButton {
+        right: 10px;
+        top: 10px;
+    }
+}

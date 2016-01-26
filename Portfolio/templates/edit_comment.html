@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block other_links %}
+<link rel="stylesheet" href="{% static 'Portfolio/styles/comments.css' %}" />
+{% endblock %}
+{% block title %}Редактирование комментария{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <form action="/gallery/edit_comment/{{last_comment.pk}}/save" method="POST">
+                <div class="form-group">
+                    <textarea name="text" class="form-control no-resize" maxlength="512" rows="3">{{ last_comment.text }}</textarea>
+                </div>
+                <input type="submit" class="btn btn-success btn-submit" value="Сохранить"/>
+            </form>
+        </div>
+
+    </div>
+    <h3>История изменений</h3>
+    {% if history|length > 0 %}
+    {% for comment in history %}
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="history-block-form" action="/gallery/edit_comment/{{last_comment.pk}}/rollback" method="POST">
+                <div class="form-group">
+                    <textarea class="form-control no-resize" rows="3" readonly>{{ comment.text }}</textarea>
+                </div>
+                <input name="rollback_comment_id" type="hidden" value="{{comment.pk}}" />
+                <input type="submit" class="btn btn-info btn-submit" value="Восстановить" />
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="row">
+        <div class="col-xs-12">
+            <i>Нет изменений</i>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,68 @@
+.fix-margin-bottom {
+    margin-bottom: 15px;
+}
+
+.no-resize {
+    resize: none;
+}
+
+
+.btn-submit {
+    float: right;
+}
+
+#commentsContainer div {
+    overflow-x: hidden;
+    word-wrap: break-word;
+}
+
+#commentsContainer div.comment-header {
+    border-bottom: 1px solid #acacac;
+    background: #fafafa;
+    padding: 15px 5px;
+}
+
+#commentsContainer div.comment-header h4 {
+    margin: 0px;
+}
+
+#commentsContainer div.comment-text {
+    padding: 5px;
+}
+
+@media (min-width: 768px) {
+    #commentsContainer small {
+        float: right;
+    }
+}
+
+
+#commentsContainer img {
+    max-height: 200px;
+    max-width: 200px;
+    height: auto;
+    width: auto;
+}
+
+.history-block-form {
+    display: block;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    float: left;
+}
+
+#likes {
+    display: block;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    z-index: 6666;
+    padding: 5px;
+    background: #fff;
+}
+
+#likes.liked span:first-child {
+    color: red;
+}

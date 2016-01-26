@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Обо мне{% endblock %}
+{% block content %}
+<div class="row index-first-row">
+    <div class="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-6 col-sm-offset-0">
+        <p>Меня зовут Патрушева Галина и я учусь на самом лучшем факультете! УрГУ навсегда! УПИ сосет</p>
+        <p>В 2013 году поступила в <a href="//urfu.ru"><abbr title="Уральский Федеральный Университет">УрФУ</abbr></a>.
+            На данный момент я учусь на третьем курсе <a href="//imkn.urfu.ru"><abbr title="Институт Математики и Компьютрных Наук">ИМКН</abbr></a>
+            УрФУ по направлению "Компьютерные науки".</p>
+        <p>Особый интерес вызывают дисциплины, связанные дифференциальными уравнениями.</p>
+        <p>На данный момент обучаюсь в группе Кафедры Математической Физики.</p>
+    </div>
+    <div class="col-lg-5 col-md-5 col-sm-6">
+        <img alt="" src="{% static "Portfolio/images/photo_2015-11-09_00-01-091.jpg" %}" class="img-responsive img-thumbnail" />
+    </div>
+</div>
+<div class="row"><div class="col-md-12"><h2>Навыки</h2></div></div>
+<div class="row">
+    <div class="col-sm-12">
+        <p>Должна владеть следующими языками програмирования:</p>
+        <ul class="ul-fix">{% for lang in languages %}<li>{{ lang }}</li>{% endfor %}</ul>
+        <p>Кроме того обладаю базовыми знаниями PHP, SQL. </p>
+    </div>
+</div>
+<div class="row"><div class="col-md-12"><h4>Примеры работ</h4></div></div>
+<div class="row"><div class="col-md-12">
+    <ul class="ul-fix">
+        <li><a href="http://www.aiwoo.ru/">Портфолио</a> </ul>
+</div></div>
+<div class="row"><div class="col-md-12"><h2>Интересы</h2></div></div>
+<div class="row">
+    <div class="col-sm-12">
+        <p>  </p>
+    </div>
+</div>
+<div class="row bordo">
+    <div class="col-sm-4">
+        <div class="thumbnail">
+            <img alt="" src="{% static "Portfolio/images/0_9381d_57cb1be0_XXL.jpg" %}" />
+            <div class="caption"><a href="https://vk.com/club63955495">Клуб 60 секунд</a></div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="thumbnail">
+            <img alt="" src="{% static "Portfolio/images/0_9923a_512a3a88_XXL.jpg" %}" />
+            <div class="caption">Активности на МатМехе</div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="thumbnail">
+            <img alt="" src="{% static "Portfolio/images/3xsHpLKSSAA.jpg" %}" />
+            <div class="caption">Шашки</div>
+        </div>
+    </div>
+</div>
+<div class="row bordo">
+    <div class="col-sm-4">
+        <div class="thumbnail">
+            <img alt="" src="{% static "Portfolio/images/0_21cf17_9e29ec33_XXL.jpg" %}" />
+            <div class="caption">Фотографировать Иннополис</div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="thumbnail">
+            <img alt="" src="{% static "Portfolio/images/0_21dde5_11618c7_XXL.jpg" %}" />
+            <div class="caption"><a href="https://vk.com/video?section=uploaded&z=video17690313_171460820%2Falbum17690313_-1%2Fpl_17690313">Молиться на span</a></div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="thumbnail">
+            <img alt="" src="{% static "Portfolio/images/0_21de1f_2deafb3b_XXL.jpg" %}" />
+            <div class="caption">Лежать и смотреть сериалы</div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

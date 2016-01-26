@@ -1,0 +1,253 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: 'Courier New'; /* Гарнитура шрифта */
+    src: url(/static/Portfolio/fonts/7170.ttf); /* Путь к файлу со шрифтом */
+}
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Courier New';
+    font-size: 17.2px;
+}
+
+
+body {
+    padding-top: 60px;
+    background-color: #E5E2D3;
+    color: #E8634E;
+
+}
+
+.row.bordo .thumbnail .caption{
+	color:#A92F1C;
+}
+
+.header-logo a,.header-logo a:hover, .header-logo a:visited{
+	color: white;
+}
+
+a,a:hover, a:visited{
+	color:#A92F1C;
+}
+.content-outer {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+.content-inner {
+    margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+    .footer-outer {
+        height: 50px;
+    }
+}
+
+.footer-outer {
+    background-color: #E8634E;
+    width: 100%;
+}
+
+.footer-inner {
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    text-align: right;
+}
+
+.footer-inner p {
+    padding: 0px;
+    margin: 0px;
+    float: right;
+}
+
+.header {
+    z-index: 666;
+    line-height: 50px;
+    color: white;
+    width: 100%;
+    top: 0px;
+    height: 50px;
+    background-color: rgba(232,99,78,1);
+    border-bottom: solid 5px #D64F39;
+}
+
+.header-logo {
+    font-weight: bold;
+    font-size: 30px;
+    display: inline-block;
+    float: left;
+}
+
+.menu a, .menu a:visited {
+    color: white;
+}
+.manu a:hover {
+    color: #eaeaea;
+}
+
+.menu ul {
+    list-style-type: none;
+}
+
+.menu-link {
+    padding: 0px 20px 0px 20px;
+    display: block;
+    text-align: center;
+}
+
+.index-first-row {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.ul-fix {
+    margin-left: 20px;
+}
+
+
+@media (min-width: 768px) {
+    .header {
+        position: fixed;
+    }
+
+    .menu {
+        float: right;
+    }
+
+    .menu ul {
+        height: 45px;
+        line-height: 45px;
+        margin: 0px;
+        font-size: 20px;
+    }
+
+    .menu ul li {
+        display: inline-block;
+        border-left: solid 1px #BD3520;
+        transition: background-color 1s ease;
+    }
+
+    .menu ul:last-child {
+        border-right: solid 1px #BD3520;
+    }
+
+    .menu ul li:hover, .menu-active {
+        background-color: #D64F39
+    }
+
+    .menu-expand {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        position: absolute;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        left: 0px;
+        top: 50px;
+        background-color: #E8634E;
+        width: 100%;
+        color: white;
+        border-left: solid 5px #D64F39;
+    }
+
+    .menu-visible {
+        display: block;
+    }
+
+    .menu ul {
+        margin: 0px;
+    }
+
+    .menu ul li {
+        border-bottom: solid 1px #BD3520;
+        transition: background-color 1s ease;
+    }
+
+    .menu ul li:hover, .menu-active {
+        background-color: #D64F39;
+    }
+
+    .menu-expand {
+        text-align: center;
+        line-height: 35px;
+        width: 35px;
+        height: 35px;
+        margin: 5px;
+        float: right;
+        border-radius: 7px;
+        background-color: #E2897B;
+    }
+
+    .menu-expand:hover {
+        background-color: #D64F39;
+    }
+
+    .header-logo {
+        font-size: 20px;
+    }
+}
+
+.before-icons:before {
+    content: "";
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.yandex-mail-icon:before {
+    background-image: url('/static/Portfolio/images/icons/yandex-mail.png');
+}
+
+.vk-icon:before {
+    background-image: url('/static/Portfolio/images/icons/vk-icon.png');
+}
+
+.github-icon:before {
+    background-image: url('/static/Portfolio/images/icons/github-icon.png');
+}
+
+.instagram-icon:before {
+    background-image: url('/static/Portfolio/images/icons/instagram-icon.png');
+}
+
+.telegram-icon:before {
+    background-image: url('/static/Portfolio/images/icons/telegram-icon.png');
+}
+
+.phone-icon:before {
+    background-image: url('/static/Portfolio/images/icons/phone-icon.png');
+}
+
+.inner-div-margin > div {
+    margin-bottom: 15px;
+}
+
+.counter {
+    float: left;
+    margin: 5px 0px;
+}
+
+.last-seen {
+    font-size: 10px;
+    float: left;
+}

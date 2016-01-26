@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Посещения{% endblock %}
+{% block content %}
+<div class="alert">Посмотреть историю просмотров пользователей:
+    {% for user in users %}{% if forloop.counter != 1 %}, {% endif %}<a href="/history/{{ user.pk }}">{{ user.email }} ({{ user.formated_user_name|truncatechars:45 }})</a>{% endfor %}
+</div>
+<table class="table table-striped">
+    <tr><th>Время</th><th>IP</th><th>User-agent</th><th>Разрешение экрана</th></tr>
+    {% for visit in visits %}
+    <tr><td>{{ visit.datetime|date:"H:i:s d/m/Y" }}</td><td>{{ visit.ip }}</td><td>{{ visit.user_agent_parsed }}</td><td>{{ visit.user_resolution }}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

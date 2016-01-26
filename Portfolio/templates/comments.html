@@ -1,0 +1,21 @@
+{% if not comments %}
+Еще нет комментариев. Вы можете стать первым.
+{% else %}
+{% for comment in comments %}
+<div>
+    <div class="comment-header">
+        <h4>
+            {{ comment.author.formated_user_name|truncatechars:50 }}
+            <small>
+                {% if user == comment.author %}
+                    <a href="/gallery/edit_comment/{{comment.pk}}/edit">Редактировать</a> |
+                    <a href="javascript:deleteComment({{comment.pk}})">Удалить</a> |
+                {% endif %}
+                {{ comment.datetime|date:"H:i:s d/m/Y" }}
+            </small>
+        </h4>
+    </div>
+    <div class="comment-text">{{ comment.safe_text|safe }}</div>
+</div>
+{% endfor %}
+{% endif %}

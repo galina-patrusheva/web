@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{% static "Portfolio/styles/bootstrap/css/bootstrap.css" %}" />
+    <link rel="stylesheet" href="{% static "Portfolio/styles/style.css" %}" />
+    <link rel="icon" href="//a1exdandy.me/static/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="//a1exdandy.me/static/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="{% static "Portfolio/scripts/script.js" %}"></script>
+    <script type="text/javascript" src="{% static "Portfolio/scripts/utils.js" %}"></script>
+    {% block other_links %}
+    {% endblock %}
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="{% static "Portfolio/scripts/respond.min.js" %}" ></script>
+    <![endif]-->
+    <title>Галка &#x2764;</title>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-logo"><a href="/"> Галка &#x2764;</a></div>
+            {% block menu %}
+            <div class="menu" id="menu" data-expand="false">
+                <ul>{% for name, href in menu %}<li {% if name == active %}class="menu-active"{% endif %}><a class="menu-link" href="{{ href }}">{{ name }}</a></li>{% endfor %}</ul>
+            </div>
+            <div onclick="expand_menu()" class="menu-expand"><span class="glyphicon glyphicon-menu-hamburger"></span></div>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="container content-outer">
+        <div class="content-inner">
+            <div class="page-header"><h1>{% block title %}{% endblock %}</h1></div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="footer-outer">
+        <div class="container footer-inner">
+            <a href="/visits"><img src="/counter" class="counter" alt="counter" /></a>
+            <script type="text/javascript">xhrPost('/counter', {resolution: screen.width + "x" + screen.height});</script>
+            {% if last_view %}
+                <div class="last-seen">Последний просмотр сайта: {{last_view|date:"H:i:s d/m/Y"}}</div>
+            {% endif %}
+            <p>&#10052; &#9731; &#10053;</p>
+        </div>
+    </div>
+    {% block layers %}
+    {% endblock %}
+</body>
+</html>

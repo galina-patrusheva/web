@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block other_links %}
+<link rel="stylesheet" href="{% static 'Portfolio/styles/gallery.css' %}" />
+<link rel="stylesheet" href="{% static 'Portfolio/styles/comments.css' %}" />
+<script type="text/javascript" src="{% static "Portfolio/scripts/gallery.js" %}"></script>
+<script type="text/javascript" src="{% static "Portfolio/scripts/comments.js" %}"></script>
+{% endblock %}
+{% block title %}Галерея <small style="font-size: 16px;"><a href="/gallery/statistic.xml">Статистика в XML</a></small>{% endblock %}
+{% block content %}
+<div id="imageContainer">
+    {% for album in albums_info %}
+    <div class="row">
+        <div class="col-xs-12"><h3>{{ album.name }}<small>{{ album.date|date:"d/m/Y" }}</small></h3></div>
+    </div>
+    <div class="row album-header">
+        <div class="col-xs-12"><p>{{ album.description }}</p></div>
+    </div>
+    <div id="album_{{ album.id }}" class="row">
+        {% for photo in album.photos %}
+        <div class="gallery-image-div {% cycle 'gallery-image-div-left' 'gallery-image-div-right' %}">
+            <a id="photo_{{ album.id }}_{{ forloop.counter0 }}" href="{% static 'Portfolio/photos/' %}{{ photo.big_name }}">
+                <img id="photo_{{ photo.pk }}" alt="" src="{% static 'Portfolio/photos/' %}{{ photo.preview_name }}" />
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block layers %}
+<div id="imageViewerLayer">
+
+    <div class="container viewer-outer">
+        <div id="viewerDiv">
+            <a id="closeButton" class="button" href="#"></a>
+            <a id="saveButton" class="button" title="Сделать стартовой" href="#"></a>
+            <a id="leftButton" class="button" href="#"></a>
+            <a id="rightButton" class="button" href="#"></a>
+            <div class="helper"></div><img id="currentImage" alt="current big image" src="#" />
+            <a href="javascript:likeCurrent()" id="likes"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span><span>666</span></a>
+        </div>
+    </div>
+
+    <div class="container comments-outer">
+        <div class="comments-header"><h3>Комментарии
+            {% if user %}
+                <small>Вы вошли как {{ user.first_name }} {{ user.last_name }} <a href="signout">Выйти</a></small>
+            {% endif %}
+        </h3></div>
+        <div class="row">
+            <div class="col-xs-12 fix-margin-bottom" id="commentsContainer">
+            </div>
+        </div>
+        {% if not user %}
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="alert alert-info">Чтобы добавить коментарии, авторизуйтесь.</div>
+            </div>
+        </div>
+        <div class="row fix-margin-bottom">
+            <div class="col-md-6">
+                <h3>Авторизация</h3>
+                <form method="POST" action="/gallery/signin">
+                    <div class="form-group">
+                        <label for="signin_email">E-Mail</label>
+                        <input class="form-control" type="email" name="email" id="signin_email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="signin_password">Пароль</label>
+                        <input class="form-control" type="password" name="password" id="signin_password" />
+                    </div>
+                    {% csrf_token %}
+                    <input type="submit" value="Sign In" class="btn btn-success"/>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Регистрация</h3>
+                <form method="POST" action="/gallery/signup" onsubmit="return signupFormValidator();" >
+                    <div class="form-group">
+                        <label for="signup_email">E-Mail</label>
+                        <input class="form-control" type="email" name="email" maxlength="128" id="signup_email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="signup_first_name">Имя</label>
+                        <input class="form-control" name="first_name" maxlength="128" id="signup_first_name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="signup_last_name">Фамилия</label>
+                        <input class="form-control" name="last_name" maxlength="128" id="signup_last_name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="signup_password">Пароль</label>
+                        <input class="form-control" type="password" name="password" id="signup_password" />
+                    </div>
+                    <div class="form-group">
+                        <label for="signup_password_confirm">Потдверждение пароля</label>
+                        <input class="form-control" type="password" id="signup_password_confirm" />
+                    </div>
+                    {% csrf_token %}
+                    <input type="submit" value="Sign Up" class="btn btn-primary" />
+                </form>
+            </div>
+        </div>
+        {% else %}
+        <div class="row fix-margin-bottom">
+            <div class="col-xs-12">
+                <div id="errorsContainer" class="alert alert-danger"></div>
+                <form id="postCommentForm" method="POST" action="/gallery/add_comment">
+                    <div class="form-group">
+                        <textarea name="text" placeholder="Текст комментария" class="form-control no-resize" maxlength="512" rows="3"></textarea>
+                    </div>
+                    <input type="hidden" name="photoId" id="photoIdElement"/>
+                    <input type="submit" class="btn btn-success btn-submit" value="Отправить" />
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+</div>
+
+<div id="helpLayer">
+    <div class="helpMessage">
+        <a id="helpCloseButton" class="button" href="#"></a>
+        <div>
+            <h2>Справка</h2>
+            <p>Вы находитесь в галерее.</p>
+            <p>Нажмите на фото, чтобы перейти в режим просмотра.</p>
+            <p>В режиме просмотра можно переключаться между фотографиям с помощью кнопок со стрелкам влево и вправо.</p>
+            <p>Нажатие на красную кнопку с крестом закроет режим просмотра.</p>
+            <p>Однократное нажатие на желтую кнопку с изображением звезды сделает кнопку зеленой и сохранит текущую фотографию, и при следующем переходе по прямой <a href="/gallery">ссылке</a>
+                будет открыта сохраненная фотография. <b>Повторное нажатие</b> отменяет сохранение.</p>
+            <p>Также для работы можно использовать следующие клавиши:</p>
+            <ul class="ul-fix">
+                <li>Left - предыдущая фотография</li>
+                <li>Right - следующая фотография</li>
+                <li>ESC - выйти из режима просмотра (или из справки)</li>
+                <li>F1 - открыть данную справку</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

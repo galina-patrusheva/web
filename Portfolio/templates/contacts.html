@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Контакты{% endblock %}
+{% block content %}
+<div class="row inner-div-margin">
+    <div class="col-sm-4 col-xs-12">
+        <img alt="" class="img-responsive img-thumbnail" src="{% static "Portfolio/images/portrait.jpg" %}"/>
+    </div>
+    <div class="col-sm-8 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">Телефон</h3></div>
+            <div class="panel-body"><span class="before-icons phone-icon">+7-906-807-5987</span></div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">E-mail</h3></div>
+            <div class="panel-body"><a target="_blank" class="before-icons yandex-mail-icon" href="mailto:Galka-Lucky@yandex.ru">Galka-Lucky@yandex.ru</a></div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">Другие контакты</h3></div>
+            <div class="panel-body"><a target="_blank" class="before-icons vk-icon" href="//vk.com/id17690313">vk.com/id17690313</a></div>
+            <div class="panel-body"><a target="_blank" class="before-icons instagram-icon" href="//instagram.com/galkalucky/">instagram.com/galkalucky</a></div>
+            <div class="panel-body"><a target="_blank" class="before-icons telegram-icon" href="//telegram.me/id17690313">telegram.me/id17690313</a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

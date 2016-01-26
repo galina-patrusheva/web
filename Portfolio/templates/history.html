@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}История пользователя {{ user.first_name }} {{ user.last_name }}{% endblock %}
+{% block content %}
+<table class="table table-striped">
+    <tr><th>Время</th><th>IP</th><th>User-agent</th><th>Query String</th></tr>
+    {% for event in history %}
+    <tr><td>{{ event.datetime|date:"H:i:s d/m/Y" }}</td><td>{{ event.ip }}</td><td>{{ event.user_agent_parsed }}</td><td>{{ event.query }}</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
