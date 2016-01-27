@@ -245,7 +245,7 @@ div.comments-header {
     }
 
     #saveButton.on-saved-image:hover {
-        background-position: -100px -50px;
+        background-position: -100px -100px;
     }
 
     #saveButton.on-saved-image:active {
